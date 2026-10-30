@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle Inteligente de Estoque</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <h1>Controle Inteligente de Estoque</h1>
+    <p>Gerenciamento e monitoramento de produtos</p>
+</header>
+
+<main>
+
+    <section id="indicadores">
+        <article class="card">
+            <h2>Total de produtos</h2>
+            <p id="totalProdutos">0</p>
+        </article>
+
+        <article class="card">
+            <h2>Sem estoque</h2>
+            <p id="semEstoque">0</p>
+        </article>
+
+        <article class="card">
+            <h2>Estoque crítico</h2>
+            <p id="estoqueCritico">0</p>
+        </article>
+
+        <article class="card">
+            <h2>Valor do estoque</h2>
+            <p id="valorEstoque">R$ 0,00</p>
+        </article>
+    </section>
+
+    <section class="painel">
+        <h2 id="tituloFormulario">Cadastrar produto</h2>
+
+        <form id="formProduto">
+
+            <input type="hidden" id="produtoId">
+
+            <div class="campo">
+                <label for="nome">Nome do produto</label>
+                <input type="text" id="nome" required>
+            </div>
+
+            <div class="campo">
+                <label for="categoria">Categoria</label>
+                <select id="categoria" required>
+                    <option value="">Selecione</option>
+                    <option value="Informática">Informática</option>
+                    <option value="Periféricos">Periféricos</option>
+                    <option value="Acessórios">Acessórios</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade"
+                       min="0" step="1" required>
+            </div>
+
+            <div class="campo">
+                <label for="quantidadeMinima">Quantidade mínima</label>
+                <input type="number" id="quantidadeMinima"
+                       min="0" step="1" required>
+            </div>
+
+            <div class="campo">
+                <label for="preco">Preço unitário (R$)</label>
+                <input type="number" id="preco"
+                       min="0.01" step="0.01" required>
+            </div>
+
+            <div class="acoes-formulario">
+                <button type="submit" id="botaoSalvar">
+                    Cadastrar produto
+                </button>
+
+                <button type="button" id="cancelarEdicao"
+                        hidden>
+                    Cancelar edição
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+    <section class="painel">
+
+        <h2>Produtos cadastrados</h2>
+
+        <div class="filtros">
+
+            <input type="search" id="pesquisa"
+                   placeholder="Pesquisar produto pelo nome">
+
+            <select id="filtroCategoria">
+                <option value="">Todas as categorias</option>
+                <option value="Informática">Informática</option>
+                <option value="Periféricos">Periféricos</option>
+                <option value="Acessórios">Acessórios</option>
+                <option value="Outros">Outros</option>
+            </select>
+
+            <select id="filtroSituacao">
+                <option value="">Todas as situações</option>
+                <option value="sem">Sem estoque</option>
+                <option value="critico">Estoque crítico</option>
+                <option value="normal">Estoque normal</option>
+            </select>
+
+            <select id="ordenacao">
+                <option value="nome">Ordenar por nome</option>
+                <option value="quantidade">Ordenar por quantidade</option>
+                <option value="preco">Ordenar por preço</option>
+            </select>
+
+        </div>
+
+        <p id="mensagem" role="status" aria-live="polite"></p>
+
+        <div class="tabela-container">
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Valor total</th>
+                    <th>Situação</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+
+                <tbody id="listaProdutos"></tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+    <section class="painel">
+        <h2>Produtos prioritários</h2>
+        <ol id="produtosPrioritarios"></ol>
+    </section>
+
+</main>
+
+</body>
+</html>
