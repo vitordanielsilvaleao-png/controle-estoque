@@ -1,0 +1,270 @@
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #14532d;
+    color: white;
+    padding: 25px 5%;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #dcfce7;
+}
+
+main {
+    width: 90%;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+/* Indicadores */
+#indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 26px;
+    font-weight: bold;
+    color: #166534;
+}
+
+/* Painéis */
+.painel {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.painel h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+#formProduto {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #86efac;
+    border-color: #16a34a;
+}
+
+.acoes-formulario {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Botões */
+button {
+    padding: 11px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #15803d;
+    color: white;
+}
+
+button:hover {
+    background-color: #166534;
+}
+
+#cancelarEdicao {
+    background-color: #64748b;
+}
+
+.botao-editar {
+    background-color: #2563eb;
+    margin-right: 5px;
+}
+
+.botao-excluir {
+    background-color: #dc2626;
+}
+
+/* Pesquisa e filtros */
+.filtros {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Tabela */
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #475569;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Situação do estoque */
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-sem {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-critico {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-normal {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/* Mensagens */
+#mensagem {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.mensagem-sucesso {
+    color: #15803d;
+}
+
+.mensagem-erro {
+    color: #dc2626;
+}
+
+#produtosPrioritarios li {
+    padding: 8px 0;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    #indicadores {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filtros {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    #indicadores {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card p {
+        font-size: 21px;
+    }
+
+    .painel {
+        padding: 16px;
+    }
+
+    #formProduto,
+    .filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .acoes-formulario {
+        flex-wrap: wrap;
+    }
+}
